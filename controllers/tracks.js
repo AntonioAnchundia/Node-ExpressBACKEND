@@ -77,12 +77,14 @@ const  deleteItem = async (req, res) => {
     try {
         req = matchedData(req);
         const {id} = req;
-        const data = await tracksModel.delete({_id: id});
+        const data = await tracksModel.deleteOne({_id: id});
         res.send({ data })
     } catch (e) {
         handleHttpError(res, "ERROR_DELETE_ITEM");
     }
  }
+
+ 
 
 
 module.exports = { getItems, getItem, createItem, updateItem, deleteItem }
